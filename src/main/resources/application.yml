@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:payment
+    username: payment_user
+    password:
+    sql-script-encoding: utf-8
+  jpa :
+    database-platform : org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+graphql:
+  servlet:
+    enabled: true
+    mapping: /graphql
+    corsEnabled: false
+    cors:
+      allowed-origins: http://localhost:8080
+      allowed-methods: GET, HEAD, POST, PATCH
+    exception-handlers-enabled: true
+    context-setting: PER_REQUEST_WITH_INSTRUMENTATION
+    async-mode-enabled: true
+  tools:
+    schema-location-pattern: "**/*.graphqls"
+    introspection-enabled: true
+  extended-scalars: BigDecimal, Date, Void

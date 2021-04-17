@@ -1,0 +1,20 @@
+
+
+type Query {
+    paymentByProductId(productId : ID) : Payment
+    existenceProductId(productId : ID) : Boolean
+}
+type Mutation {
+   savePayment(productId: ID, title: String) : Payment
+}
+type Payment {
+    productId : ID!
+    title : String
+    totalInvestingAmount : Int
+    currentInvestingAmount : Int
+    investerCnt : Int
+    startedAt : String
+    finishedAt : String
+    investmentStatus : String
+}
+
